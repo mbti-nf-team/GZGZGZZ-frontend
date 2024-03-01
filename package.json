@@ -12,10 +12,10 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "turbo:lint": "turbo run lint",
-    "workspace:project1": "yarn workspace project1",
-    "workspace:project2": "yarn workspace project2",
-    "test:unit": "yarn run workspace:project1 test:coverage && yarn run workspace:project2 test:coverage",
-    "lint": "yarn run workspace:project1 lint && yarn run workspace:project2 lint"
+    "workspace:project3": "yarn workspace project3",
+    "workspace:project4": "yarn workspace project4",
+    "test:unit": "yarn run workspace:project3 test:coverage && yarn run workspace:project4 test:coverage",
+    "lint": "yarn run workspace:project3 lint && yarn run workspace:project4 lint"
   },
   "devDependencies": {
     "@turbo/gen": "^1.12.4",

@@ -9137,9 +9137,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"project1@workspace:apps/project1":
+"project3@workspace:apps/project3":
   version: 0.0.0-use.local
-  resolution: "project1@workspace:apps/project1"
+  resolution: "project3@workspace:apps/project3"
   dependencies:
     "@next/eslint-plugin-next": "npm:^14.0.3"
     "@testing-library/jest-dom": "npm:^6.1.4"
@@ -9179,9 +9179,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"project2@workspace:apps/project2":
+"project4@workspace:apps/project4":
   version: 0.0.0-use.local
-  resolution: "project2@workspace:apps/project2"
+  resolution: "project4@workspace:apps/project4"
   dependencies:
     "@next/eslint-plugin-next": "npm:^14.0.3"
     "@testing-library/jest-dom": "npm:^6.1.4"
