@@ -1,27 +1,14 @@
 module.exports = {
   root: true,
   env: {
-    es6: true,
-    browser: true,
     jest: true,
   },
   ignorePatterns: [
-    'node_modules/',
-    '.pnp.cjs',
-    '.pnp.loader.cjs',
-    'public/',
+    '/.next',
   ],
   extends: [
-    'airbnb',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'plugin:jsx-a11y/recommended',
-    'plugin:react/jsx-runtime',
+    '@nf-team/eslint-config',
     'plugin:@next/next/recommended',
-  ],
-  plugins: [
-    // set your plugins
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -30,34 +17,16 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  settings: {
-    'import/resolver': {
-      alias: {
-        map: [['@', './src']],
-        extensions: ['.ts', '.js', '.tsx', '.json'],
-      },
-    },
-  },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
-      extends: [
-        'airbnb-typescript',
-        'plugin:@typescript-eslint/recommended',
-      ],
-      plugins: [
-        '@typescript-eslint',
-      ],
-      rules: {
-        // set your typescript rules
-      },
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: ['./tsconfig.json'],
       },
     },
     {
-      files: ['src/hooks/**/**/*.test.ts?(x)'],
+      files: ['hooks/**/**/*.test.ts?(x)'],
       rules: {
         'react-hooks/rules-of-hooks': 'off',
       },
@@ -66,7 +35,8 @@ module.exports = {
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
       extends: ['plugin:testing-library/react', 'plugin:jest/recommended'],
       rules: {
-        // set your test eslint rules
+        'jest/no-identical-title': 'off',
+        'react-hooks/rules-of-hooks': 'off',
       },
     },
     {
@@ -78,7 +48,32 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [['@', './src']],
+        extensions: ['.ts', '.js', '.tsx', '.json'],
+      },
+    },
+  },
   rules: {
-    // set your rules
+    'react/require-default-props': 'off',
+    'import/order': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@next/next/no-html-link-for-pages': ['error', 'app/'],
+    'simple-import-sort/imports': ['error', {
+      groups: [
+        ['^\\u0000'],
+        ['^(assert|buffer|child_process|cluster|console|constants|crypto|dgram|dns|domain|events|fs|http|https|module|net|os|path|punycode|querystring|readline|repl|stream|string_decoder|sys|timers|tls|tty|url|util|vm|zlib|freelist|v8|process|async_hooks|http2|perf_hooks)(/.*|$)'],
+        ['^react'],
+        ['^next'],
+        ['^@?\\w'],
+        ['^(@|lib|components|utils|hooks|stores)(/.*|$)'],
+        ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+        ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+        ['^.+\\.svg$'],
+        ['^.+\\.s?css$'],
+      ],
+    }],
   },
 };
